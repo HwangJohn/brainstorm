@@ -14,11 +14,12 @@ import json
 
 def configure_gpus(gpus):
     # set gpu id and tf settings
-    os.environ['CUDA_VISIBLE_DEVICES'] = ','.join([str(g) for g in gpus])
-    config = tf.ConfigProto(allow_soft_placement=True)
-    config.gpu_options.allow_growth = True
+    #os.environ['CUDA_VISIBLE_DEVICES'] = ','.join([str(g) for g in gpus])
+    #config = tf.ConfigProto(allow_soft_placement=True)
+    #config.gpu_options.allow_growth = True
 
-    K.tensorflow_backend.set_session(tf.Session(config=config))
+    #K.tensorflow_backend.set_session(tf.Session(config=config))
+    pass
 
 
 # loads a saved experiment using the saved parameters.

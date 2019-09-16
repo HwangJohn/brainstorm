@@ -36,12 +36,12 @@ _ = eval_ds.load_dataset()
 for f in eval_ds.files_labeled_valid:
     print(f)
 
-gpu_ids = [3]
+#gpu_ids = [3]
 # set gpu id and tf settings
-os.environ['CUDA_VISIBLE_DEVICES'] = ','.join([str(g) for g in gpu_ids])
-config = tf.ConfigProto()
-config.gpu_options.allow_growth = True
-K.tensorflow_backend.set_session(tf.Session(config=config))
+#os.environ['CUDA_VISIBLE_DEVICES'] = ','.join([str(g) for g in gpu_ids])
+#config = tf.ConfigProto()
+#config.gpu_options.allow_growth = True
+#K.tensorflow_backend.set_session(tf.Session(config=config))
 
 # load trained segmenters
 model_files = [

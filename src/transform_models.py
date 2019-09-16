@@ -226,7 +226,7 @@ class TransformModelTrainer(experiment_base.Experiment):
 
         if 'color' in self.arch_params['model_arch']:
 
-            from keras.models import load_model
+            from tensorflow.keras.models import load_model
             self.flow_fwd_model = load_model(
                 self.arch_params['flow_fwd_model'],
                 custom_objects={
@@ -353,7 +353,7 @@ class TransformModelTrainer(experiment_base.Experiment):
             raise NotImplementedError('Only separate bidirectional spatial transform models are implemented in this version!')
 
         if 'init_weights_from' in self.arch_params.keys():
-            from keras.models import load_model
+            from tensorflow.keras.models import load_model
             # this is not the right indexing, but it doesnt matter since we are only loading conv weights
             init_weights_from_models = [
                 load_model(
