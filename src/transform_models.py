@@ -4,9 +4,9 @@ import os
 import sys
 import time
 
-import keras.metrics as keras_metrics
+import tensorflow.keras.metrics as keras_metrics
 import numpy as np
-from keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam
 
 from src import experiment_base, mri_loader, networks, utils
 from src import metrics as my_metrics
@@ -313,9 +313,10 @@ class TransformModelTrainer(experiment_base.Experiment):
                 vol_size=(160, 192, 224),
                 enc_nf=nf_enc,
                 dec_nf=nf_dec,
-                indexing='xy'
+                indexing='xy',
+                model_name=self.arch_params['model_arch']
             )
-            self.transform_model.name = self.arch_params['model_arch']
+            # self.transform_model.name = self.arch_params['model_arch']
 
             self.models = [self.transform_model]
         elif 'bidir_separate' in self.arch_params['model_arch']:

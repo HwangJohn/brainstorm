@@ -4,13 +4,12 @@ import sys
 import time
 
 import cv2
-import keras.backend as K
-import numpy as np
 import tensorflow as tf
-from keras.utils import generic_utils
-
+import tensorflow.keras.backend as K
+import numpy as np
+# from tensorflow.keras.utils import generic_utils
 from src import experiment_base
-
+from tensorflow.keras import utils
 import json
 
 def configure_gpus(gpus):
@@ -178,7 +177,7 @@ def train_batch_by_batch(
         if e < end_epoch:
             exp.update_epoch_count(e)
 
-        pb = generic_utils.Progbar(n_batch_per_epoch_train)
+        pb = utils.Progbar(n_batch_per_epoch_train)
         printed_count = 0
         for bi in range(n_batch_per_epoch_train):
             joint_loss, joint_loss_names = exp.train_on_batch()
@@ -245,7 +244,7 @@ def train_batch_by_batch(
 
         if (e % auto_test_every_n_epochs == 0 or e % test_every_n_epochs == 0):
             file_stdout_logger.debug('{} testing'.format(exp.model_name))
-            pbt = generic_utils.Progbar(1)
+            pbt = utils.Progbar(1)
 
             test_loss, test_loss_names = exp.test_batches()
 

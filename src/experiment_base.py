@@ -7,7 +7,7 @@ import logging
 import os
 import sys
 
-from keras.utils import plot_model
+from tensorflow.keras.utils import plot_model
 import numpy as np
 
 from src import utils
